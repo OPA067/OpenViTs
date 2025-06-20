@@ -1,0 +1,3 @@
+cp:  表示clipvit最后一层输出的[CLS]特征与每层patch特征间的热力图
+lcp: 表示clipvit每一层输出的[CLS]特征与当前层patch特征间的热力图
+tp:  表示clipvit最后一层输出的[EOS]特征与每层patch特征间的热力图
