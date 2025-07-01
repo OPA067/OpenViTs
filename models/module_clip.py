@@ -262,7 +262,7 @@ class Transformer(nn.Module):
         self.resblocks = nn.Sequential(*[ResidualAttentionBlock(width, heads, attn_mask) for _ in range(layers)])
 
     def forward(self, x: torch.Tensor):
-        layer_list = [0, 5, 11] # layers1/6/12
+        layer_list = [0, 5, 11] # layer1/6/12
         mid_x = []
         for idx, layer in enumerate(self.resblocks):
             x = layer(x)
