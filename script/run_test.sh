@@ -17,6 +17,5 @@ main_retrieval.py \
 --max_words 24 \
 --max_frames 12 \
 --video_framerate 1 \
---split_batch 8 \
 --output_dir experiments/MSVD \
---init_model experiments/MSRVTT/2025-06-18_02:50:22/pytorch_model.bin.1
+--init_model experiments/MSRVTT/2025-06-18_02:50:22/pytorch_model.bin.4
