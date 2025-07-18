@@ -193,7 +193,7 @@ class MyModel(nn.Module):
                 p_feat_w = self.p_feat_w(p_feat).squeeze(-1)
                 sims_wp = torch.einsum('awd,bpd->abwp', [self.norm(w_feat), self.norm(p_feat)])
                 w2p_logits, _ = sims_wp.max(dim=-1)
-                w2p_logits = torch.einsum('abw,bw->ab', [w2p_logits, w_feat_w])
+                w2p_logits = torch.einsum('abw,aw->ab', [w2p_logits, w_feat_w])
                 p2w_logits, _ = sims_wp.max(dim=-2)
                 p2w_logits = torch.einsum('abp,bp->ab', [p2w_logits, p_feat_w])
                 sims_wp = (w2p_logits + p2w_logits) / 2.0
@@ -302,7 +302,7 @@ class MyModel(nn.Module):
             p_feat_w = self.p_feat_w(p_feat).squeeze(-1)
             sims_wp = torch.einsum('awd,bpd->abwp', [self.norm(w_feat), self.norm(p_feat)])
             w2p_logits, _ = sims_wp.max(dim=-1)
-            w2p_logits = torch.einsum('abw,bw->ab', [w2p_logits, w_feat_w])
+            w2p_logits = torch.einsum('abw,aw->ab', [w2p_logits, w_feat_w])
             p2w_logits, _ = sims_wp.max(dim=-2)
             p2w_logits = torch.einsum('abp,bp->ab', [p2w_logits, p_feat_w])
             sims_wp = (w2p_logits + p2w_logits) / 2.0
